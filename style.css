@@ -1,0 +1,322 @@
+/* =====================================================
+   PAGE
+===================================================== */
+
+html,
+body {
+    margin: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+header {
+    height: 55px;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   MAIN APPLICATION AREA
+===================================================== */
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Photo panel + map */
+
+main {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+
+    /* Use all available vertical space */
+    flex: 1;
+
+    min-height: 0;
+}
+
+
+/* =====================================================
+   PHOTO PANEL
+===================================================== */
+
+#photo-panel {
+    width: 32%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+#photo-panel h2 {
+    font-size: 18px;
+    padding: 10px;
+    margin: 0;
+}
+
+#selected-photo {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    display: block;
+}
+
+#photo-title {
+    padding: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+
+/* =====================================================
+   MAP
+===================================================== */
+
+#map {
+    width: 68%;
+
+    /* Fill the available height */
+    height: 100%;
+
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   ADDITIONAL LOCATIONS
+===================================================== */
+
+#gallery-section {
+    background-color: white;
+    margin: 0 15px 15px 15px;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+
+/* Gallery heading */
+
+#gallery-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#gallery-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+
+/* Collapse button */
+
+/* Collapse / expand button */
+
+#gallery-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
+
+/* Create the arrow using CSS */
+
+#toggle-arrow {
+    display: block;
+    width: 8px;
+    height: 8px;
+
+    border-right: 2px solid #555;
+    border-bottom: 2px solid #555;
+
+    transform: rotate(45deg);
+}
+
+
+/* Arrow points upward when gallery is collapsed */
+
+#gallery-section.collapsed #toggle-arrow {
+    transform: rotate(225deg);
+}
+
+/* Photo gallery */
+
+#gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+
+/* Thumbnail photographs */
+
+.thumbnail {
+    width: 150px;
+    height: 100px;
+    object-fit: contain;       /* show the whole photo, no cropping */
+    background-color: #eee;
+    cursor: pointer;
+    border: 3px solid transparent;
+    flex-shrink: 0;
+}
+
+
+/* Selected photograph */
+
+.thumbnail.selected {
+    border: 3px solid black;
+}
+
+
+.thumbnail:hover {
+    opacity: 0.7;
+}
+
+
+/* =====================================================
+   COLLAPSED GALLERY
+===================================================== */
+
+#gallery-section.collapsed #gallery {
+    display: none;
+}
+
+
+/* =====================================================
+   USER-ADDED LOCATION FORM
+===================================================== */
+
+/* Let the left panel scroll so the form fits below the photo */
+#photo-panel {
+    overflow-y: auto;
+}
+
+/* Make the selected photo a fixed height to leave room for the form */
+#selected-photo {
+    height: 230px;
+    object-fit: contain;       /* show the whole photo, no cropping */
+    background-color: #eee;    /* light gray bars if the photo is narrower */
+}
+
+#add-location-section {
+    padding: 12px;
+    border-top: 1px solid #ddd;
+}
+
+#add-location-section h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+#location-form label {
+    display: block;
+    font-size: 13px;
+    margin: 10px 0 4px;
+}
+
+#location-form input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+}
+
+#add-location-btn {
+    width: 100%;
+    margin-top: 14px;
+    padding: 11px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background: steelblue;
+    cursor: pointer;
+}
+
+#add-location-btn:hover {
+    background: darkblue;
+}
+
+/* Message shown after submitting the form */
+#form-message {
+    font-size: 13px;
+}
+
+#form-message.success { color: green; }
+#form-message.error { color: #b00020; }
+
+
+/* =====================================================
+   DISTANCE CALCULATOR
+===================================================== */
+
+#distance-panel {
+    margin: 10px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f7fafc;
+}
+
+#distance-panel h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+}
+
+#distance-panel p {
+    font-size: 14px;
+}
+
+/* Labels and dropdowns for choosing the two locations */
+
+#distance-panel label {
+    display: block;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+#distance-panel select {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#distance-btn {
+    margin-top: 5px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: steelblue;
+    color: white;
+    cursor: pointer;
+}
+
+#distance-result {
+    font-weight: bold;
+    color: #146c43;
+}
